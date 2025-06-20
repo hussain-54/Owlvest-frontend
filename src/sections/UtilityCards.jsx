@@ -36,6 +36,7 @@ const cardVariants = {
 export default function UtilityCards() {
   return (
     <motion.section
+    
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

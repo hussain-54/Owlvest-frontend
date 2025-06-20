@@ -26,6 +26,7 @@ const partners = [
 export default function TeamSection() {
   return (
     <motion.section
+    id="team"
       className="bg-gray-900 py-20 px-6 text-white text-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}

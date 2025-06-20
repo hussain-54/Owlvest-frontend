@@ -1,62 +1,117 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 import { ConnectWallet } from '../components/WalletConnect';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+const TOTAL_PRESALE = 1_000_000_000;
+
 export default function Hero() {
   const controls = useAnimation();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
+  const [tokensSold, setTokensSold] = useState(650_000_000);
+  const [contributors, setContributors] = useState(10000);
+  const progress = ((tokensSold / TOTAL_PRESALE) * 100).toFixed(0);
+  const presaleEnd = new Date('2025-07-01T00:00:00Z');
+
   useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0, scale: 1 });
-    }
+    if (inView) controls.start({ opacity: 1, y: 0, scale: 1 });
   }, [controls, inView]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTokensSold(prev => Math.min(prev + Math.floor(Math.random() * 2000), TOTAL_PRESALE));
+      setContributors(prev => prev + Math.floor(Math.random() * 3));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
       ref={ref}
-      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-900 to-black text-center px-6 pt-8 pb-20 overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] text-center px-6 pt-8 pb-20 overflow-hidden"
     >
-      {/* Logo */}
-      <img
-        src="/logo.png"
-        alt="OwlVest Logo"
-        className="w-[250px] h-[460px] object-contain -mb-40 -mt-50 drop-shadow-[0_0_20px_rgba(173,216,230,0.4)]"
-      />
+      {/* Hero Text */}
+      <section className="text-center py-16 px-6">
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Owlvest</h1>
+        <h3 className="text-2xl sm:text-3xl text-gray-200 mb-4">The Future of Startup Investment</h3>
+        <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-6">
+          Join the <span className="text-[#00F08F]">Investment Revolution</span>
+        </h2>
+        <p className="max-w-2xl mx-auto text-gray-400 mb-10">
+          Be among the first to invest in impact-driven startups using blockchain technology. Democratizing access to early-stage equity investments with OwlCoin.
+        </p>
+      </section>
 
-      {/* Animated Heading */}
-      <div className="text-4xl md:text-6xl font-bold max-w-3xl leading-snug text-center flex flex-col items-center justify-center full-color-glow">
-        {/* Line 1 */}
-        <motion.div className="flex flex-wrap justify-center">
-          {'Invest in Startups, Not'.split('').map((char, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.12 }}
-              className={`inline-block ${char === ' ' ? 'w-2' : ''}`}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
+      {/* Presale Stats */}
+      <div className="flex flex-col gap-6 items-center w-full max-w-2xl">
+        {/* Progress Box */}
+        <div className="bg-[#1B0E3F] w-full rounded-xl p-6 text-center shadow-md border border-[#2F1C55]">
+          <div className="flex justify-between items-center mb-2">
+  <h2 className="text-md font-bold text-white">Presale Progress</h2>
+  <h2 className="text-md font-bold text-[#00F08F]">{progress}%</h2>
+</div>
 
-        {/* Line 2 */}
-        <motion.div className="flex flex-wrap justify-center mt-2">
-          {'Sh*tcoins'.split('').map((char, index) => (
-            <motion.span
-              key={index + 1000}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index + 25) * 0.12 }}
-              className={`inline-block ${char === ' ' ? 'w-2' : ''}`}
-            >
-              {char}
-            </motion.span>
-          ))}
-        </motion.div>
+          <div className="w-full bg-[#322057] rounded-full h-4 overflow-hidden">
+            <div
+              className="h-full bg-[#00F08F] transition-all duration-500"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="mt-2 text-sm text-gray-300">{tokensSold.toLocaleString()} OWL Sold / 1B OWL Total</p>
+          
+        </div>
+
+        {/* Countdown Box */}
+        <div className="bg-[#1B0E3F] w-full rounded-xl p-6 text-center shadow-md border border-[#2F1C55]">
+          <h2 className="text-md font-bold mb-4 text-white">⏰ Presale Ends In:</h2>
+          <div className="flex justify-center gap-4 text-black">
+            {['Days', 'Hours', 'Minutes', 'Seconds'].map((label, i) => (
+              <div key={i} className="bg-[#00F08F] w-16 h-16 rounded-lg flex flex-col justify-center items-center font-bold text-lg">
+                <Countdown
+                  date={presaleEnd}
+                  renderer={({ days, hours, minutes, seconds }) => {
+                    const values = [days, hours, minutes, seconds];
+                    return <>{values[i]}</>;
+                  }}
+                />
+                <span className="text-xs font-medium">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Investment Box */}
+        <div className="bg-[#1B0E3F] w-full rounded-xl p-6 text-center shadow-md border border-[#2F1C55]">
+          <h2 className="text-md font-bold mb-4 text-white">💰 Quick Investment Calculator</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <input
+              type="number"
+              placeholder="Amount in USD"
+              className="px-4 py-2 rounded-md bg-white text-black w-full sm:w-2/3"
+            />
+            <button className="bg-[#00F08F] hover:bg-[#00e87e] text-black font-semibold px-6 py-2 rounded-md w-full sm:w-auto">
+              Invest
+            </button>
+          </div>
+        </div>
+
+        {/* Email Box */}
+        <div className="bg-[#1B0E3F] w-full rounded-xl p-6 text-center shadow-md border border-[#2F1C55]">
+          <h2 className="text-md font-bold mb-4 text-white">🚀 Join Presale</h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-2 rounded-md bg-white text-black w-full sm:w-2/3"
+            />
+            <button className="bg-[#00F08F] hover:bg-[#00e87e] text-black font-semibold px-6 py-2 rounded-md w-full sm:w-auto">
+              Join Presale
+            </button>
+          </div>
+          <p className="mt-2 text-sm text-gray-300">Join 10,000+ early investors already in the presale</p>
+        </div>
       </div>
 
       {/* OwlCoin Price */}
@@ -64,22 +119,12 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30, scale: 0.95 }}
         animate={controls}
         transition={{ duration: 1.3, ease: 'easeOut', delay: 0.2 }}
-        className="text-xl mt-4 text-blue-400 font-medium text-glow"
+        className="text-xl mt-10 text-[#00F08F] font-medium text-glow"
       >
         OwlCoin Fixed Price: $0.008
       </motion.p>
 
-      {/* Countdown Timer */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={controls}
-        transition={{ duration: 1.4, ease: 'easeOut', delay: 0.4 }}
-        className="mt-6 text-lg text-white text-glow"
-      >
-        <Countdown date={new Date('2025-07-01T00:00:00Z')} />
-      </motion.div>
-
-      {/* Wallet Connect Button */}
+      {/* Wallet Connect */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={controls}
@@ -89,64 +134,29 @@ export default function Hero() {
         <ConnectWallet />
       </motion.div>
 
-      {/* Buy Now Button */}
+      {/* Buy Now */}
       <motion.button
         initial={{ opacity: 0, y: 30 }}
         animate={controls}
         transition={{ duration: 1.6, ease: 'easeOut', delay: 0.8 }}
         onClick={() => document.getElementById('token-form')?.scrollIntoView({ behavior: 'smooth' })}
-        className="mt-6 px-8 py-3 bg-blue-600 hover:bg-blue-700 glow-button text-white rounded-full font-semibold shadow-lg transition-all duration-300"
+        className="mt-6 px-8 py-3 bg-[#00F08F] hover:bg-[#00e87e] text-black rounded-full font-semibold shadow-lg transition-all duration-300 glow-button"
       >
         Buy Now
       </motion.button>
 
-      {/* Styles */}
-     <style>
-  {`
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    .shimmer-bg {
-      background-image: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%);
-      background-size: 200% 100%;
-      animation: shimmer 3s infinite;
-    }
-
-    .text-glow {
-      text-shadow: 0 0 6px rgba(200, 255, 255, 0.7), 0 0 10px rgba(180, 255, 255, 0.6), 0 0 20px rgba(160, 240, 255, 0.5);
-    }
-
-    @keyframes colorShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .full-color-glow {
-      background: linear-gradient(
-        270deg,
-        #ffcccc, #ffe0cc, #ffffcc, #ccffcc, #ccffff,
-        #cce5ff, #e0ccff, #ffccf2, #ffffff, #ffcccc
-      );
-      background-size: 3000% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: colorShift 10s ease-in-out infinite;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-    }
-
-    .glow-button {
-      box-shadow: 0 0 10px rgba(150, 255, 255, 0.5), 0 0 15px rgba(150, 255, 255, 0.4), 0 0 25px rgba(150, 255, 255, 0.3);
-    }
-
-    .glow-button:hover {
-      box-shadow: 0 0 14px rgba(150, 255, 255, 0.7), 0 0 20px rgba(150, 255, 255, 0.6), 0 0 30px rgba(150, 255, 255, 0.5);
-    }
-  `}
-</style>
-
+      {/* Custom Styles */}
+      <style>{`
+        .text-glow {
+          text-shadow: 0 0 6px rgba(0, 255, 160, 0.6), 0 0 12px rgba(0, 255, 160, 0.4);
+        }
+        .glow-button {
+          box-shadow: 0 0 10px rgba(0, 255, 160, 0.4), 0 0 20px rgba(0, 255, 160, 0.3);
+        }
+        .glow-button:hover {
+          box-shadow: 0 0 14px rgba(0, 255, 160, 0.6), 0 0 24px rgba(0, 255, 160, 0.5);
+        }
+      `}</style>
     </section>
   );
 }
