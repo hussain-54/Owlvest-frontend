@@ -57,8 +57,8 @@ export default function Hero() {
   whileHover={{ scale: 1.05, rotateY: 6, rotateX: 2 }}
   whileTap={{ scale: 0.97 }}
   transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-  src="public\app ui\swipeImage.png.png"
-  alt="Owlvest App UI"
+  src="public\app_ui\swipeImage.png.png"
+  alt="Swipe"
   className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-xl shadow-xl"
 />
 
