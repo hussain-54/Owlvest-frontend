@@ -4,11 +4,16 @@ import NewsTicker from './components/NewsTicker';
 
 import Hero from './sections/Hero';
 import TokenForm from './sections/TokenForm';
+
+
 import StatsPanel from './sections/StatsPanel';
 import UtilityCards from './sections/UtilityCards';
 import Tokenomics from './sections/Tokenomics';
 import ComparisonTable from './sections/ComparisonTable';
 import TeamSection from './sections/TeamSection';
+import Features from './sections/Features';
+import Roadmap from './sections/Roadmap';
+import FAQs from './sections/FAQs';
 import StickyFooter from './sections/StickyFooter';
 import GlobalEnhancements from './components/GlobalEnhancements';
 import SocialSidebar from './components/SocialSidebar';
@@ -22,11 +27,15 @@ export default function App() {
       <Hero />
       <SocialSidebar />
       <TokenForm />
+      
       <StatsPanel />
       <UtilityCards />
       <Tokenomics />
       <ComparisonTable />
       <TeamSection />
+      <Features/>
+      <Roadmap/>
+      <FAQs/>
       <StickyFooter />
     </div>
   );
