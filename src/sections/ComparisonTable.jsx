@@ -16,7 +16,7 @@ export default function ComparisonTable() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-gray-950 py-16 px-6 text-white text-center"
+      className="bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] py-16 px-6 text-white text-center"
     >
       <motion.h2
         className="text-3xl font-bold mb-10"

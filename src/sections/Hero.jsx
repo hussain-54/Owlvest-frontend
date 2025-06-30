@@ -4,6 +4,8 @@ import { ConnectWallet } from '../components/WalletConnect';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
+
+
 const TOTAL_PRESALE = 1_000_000_000;
 
 export default function Hero() {
@@ -33,16 +35,38 @@ export default function Hero() {
       className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] text-center px-6 pt-8 pb-20 overflow-hidden"
     >
       {/* Hero Text */}
-      <section className="text-center py-16 px-6">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Owlvest</h1>
-        <h3 className="text-2xl sm:text-3xl text-gray-200 mb-4">The Future of Startup Investment</h3>
-        <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-6">
-          Join the <span className="text-[#00F08F]">Investment Revolution</span>
-        </h2>
-        <p className="max-w-2xl mx-auto text-gray-400 mb-10">
-          Be among the first to invest in impact-driven startups using blockchain technology. Democratizing access to early-stage equity investments with OwlCoin.
-        </p>
-      </section>
+      {/* Hero Top Section - Two Column Layout */}
+<section className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-20 gap-10 text-left">
+  {/* Left Column: Headline & Text */}
+  <div className="md:w-1/2">
+    <h1 className="text-4xl sm:text-5xl font-extrabold text-[#b39ddb] mb-4">
+      Owlvest: <span className="text-white">Swipe. Match. Invest.</span>
+    </h1>
+    <p className="text-lg sm:text-xl text-gray-300 mb-4">
+      Welcome to Owlvest, where we're revolutionizing startup investing!
+    </p>
+    <p className="text-md sm:text-lg text-gray-400">
+      We're building the <strong className="text-white">Tinder for Startup Investing</strong> – powered by <strong className="text-[#00F08F]">$OwlCoin</strong>.<br />
+      Discover how we make Web3 investing simple, accessible, and secure for everyone.
+    </p>
+  </div>
+
+  {/* Right Column: App UI Image with Swipe + 3D Effect */}
+<div className="md:w-1/2 flex justify-center">
+  <motion.img
+  whileHover={{ scale: 1.05, rotateY: 6, rotateX: 2 }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+  src="public\app ui\ChatGPT_Image_Jun_28__2025__10_13_51_PM-removebg-preview.png"
+  alt="Owlvest App UI"
+  className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-xl shadow-xl"
+/>
+
+
+</div>
+
+</section>
+
 
       {/* Presale Stats */}
       <div className="flex flex-col gap-6 items-center w-full max-w-2xl">

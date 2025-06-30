@@ -1,5 +1,7 @@
-import NavBar from './components/NavBar';
 import React from 'react';
+import NavBar from './components/NavBar';
+import NewsTicker from './components/NewsTicker';
+
 import Hero from './sections/Hero';
 import TokenForm from './sections/TokenForm';
 import StatsPanel from './sections/StatsPanel';
@@ -11,15 +13,11 @@ import StickyFooter from './sections/StickyFooter';
 import GlobalEnhancements from './components/GlobalEnhancements';
 import SocialSidebar from './components/SocialSidebar';
 
-      <NavBar />
-   
-
-
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#090E21] via-[#2A0E4D] to-[#18092C] text-white font-sans" >
-      
-        <NavBar />
+    <div className="pt-32 min-h-screen bg-gradient-to-br from-[#090E21] via-[#2A0E4D] to-[#18092C] text-white font-sans">
+      <NewsTicker />
+      <NavBar />
       <GlobalEnhancements />
       <Hero />
       <SocialSidebar />

@@ -40,7 +40,7 @@ export default function UtilityCards() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="bg-gray-950 py-16 px-6 text-white text-center"
+      className="bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] py-16 px-6 text-white text-center"
     >
      <motion.h2
   initial={{ opacity: 0, y: 20 }}

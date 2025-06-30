@@ -27,7 +27,7 @@ export default function StatsPanel() {
         hidden: { opacity: 0, y: 40 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
       }}
-      className="bg-gray-900 py-12 px-6 text-white text-center"
+      className="bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51]npm py-12 px-6 text-white text-center"
     >
       {/* Heading */}
       <motion.h2

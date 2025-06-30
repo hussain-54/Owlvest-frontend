@@ -66,20 +66,21 @@ export default function Tokenomics() {
   return (
     <motion.section
       id="tokenomics"
-      className="bg-gray-900 py-16 px-4 sm:px-6 text-white text-center"
+      className="bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] py-16 px-4 sm:px-6 text-white text-center"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       <motion.h2
-        className="text-3xl font-bold mb-8 bg-gradient-to-r from-pink-500 via-purple-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        Tokenomics
-      </motion.h2>
+  className="text-3xl font-bold mb-8 bg-gradient-to-r from-pink-500 via-purple-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  $OwlCoin Tokenomics
+</motion.h2>
+
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-12 max-w-6xl mx-auto">
         {/* Glowing Pie Chart */}
@@ -152,6 +153,20 @@ export default function Tokenomics() {
           </a>
         </motion.div>
       </div>
+      <div className="mt-12 text-left md:mx-auto md:max-w-2xl">
+  <h3 className="text-xl font-semibold mb-4 text-white hover:text-blue-400 transition">
+    $OwlCoin Utility
+  </h3>
+  <ul className="list-disc pl-6 text-gray-300 space-y-3 text-sm">
+    <li className="hover:text-white transition">🎯 <strong>Tiered access</strong> to verified startup deals</li>
+    <li className="hover:text-white transition">🗳️ <strong>Voting power</strong> for governance decisions (DAO)</li>
+    <li className="hover:text-white transition">💎 <strong>Staking</strong> for WL slots, rewards & allocations</li>
+    <li className="hover:text-white transition">🚀 <strong>Investor upgrades</strong> & launchpad participation</li>
+    <li className="hover:text-white transition">👥 <strong>Referral rewards</strong> and bonus perks</li>
+    <li className="hover:text-white transition">🏅 <strong>Performance-based bonuses</strong> for mods, shillers, researchers</li>
+  </ul>
+</div>
+
 
       {/* CSS shimmer animation */}
       <style>{`

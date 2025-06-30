@@ -27,7 +27,7 @@ export default function TeamSection() {
   return (
     <motion.section
     id="team"
-      className="bg-gray-900 py-20 px-6 text-white text-center"
+      className="bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] py-20 px-6 text-white text-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -86,7 +86,7 @@ export default function TeamSection() {
           {partners.map((partner, idx) => (
             <motion.div
               key={idx}
-              className="bg-white/5 p-4 rounded-xl flex items-center justify-center h-20 shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition duration-300"
+              className="bg-gray 800 p-4 rounded-xl flex items-center justify-center h-20 shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition duration-300"
               whileHover={{ scale: 1.08 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

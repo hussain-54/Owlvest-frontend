@@ -11,7 +11,7 @@ export default function StickyFooter() {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed bottom-0 w-full bg-gray-950 text-white border-t border-gray-800 z-50 shadow-[0_-2px_15px_rgba(0,0,0,0.5)]"
+      className="fixed bottom-0 w-full bg-gradient-to-br from-[#120026] via-[#1A0038] to-[#2D0A51] text-white border-t border-gray-800 z-50 shadow-[0_-2px_15px_rgba(0,0,0,0.5)]"
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-4">
 
