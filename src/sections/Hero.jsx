@@ -57,7 +57,7 @@ export default function Hero() {
   whileHover={{ scale: 1.05, rotateY: 6, rotateX: 2 }}
   whileTap={{ scale: 0.97 }}
   transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-  src="public\app ui\ChatGPT_Image_Jun_28__2025__10_13_51_PM-removebg-preview.png"
+  src="public\app ui\swipeImage.png.png"
   alt="Owlvest App UI"
   className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-xl shadow-xl"
 />
