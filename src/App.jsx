@@ -13,7 +13,8 @@ import ComparisonTable from './sections/ComparisonTable';
 import TeamSection from './sections/TeamSection';
 import Features from './sections/Features';
 import Roadmap from './sections/Roadmap';
-import FAQs from './sections/FAQs';
+import Faqs from './sections/Faqs';
+
 import StickyFooter from './sections/StickyFooter';
 import GlobalEnhancements from './components/GlobalEnhancements';
 import SocialSidebar from './components/SocialSidebar';
@@ -35,7 +36,7 @@ export default function App() {
       <TeamSection />
       <Features/>
       <Roadmap/>
-      <FAQs/>
+      <Faqs/>
       <StickyFooter />
     </div>
   );
