@@ -5,7 +5,7 @@ const team = [
   {
     name: 'Talha',
     role: 'Founder & CEO',
-    image: '/team/talha.png',
+    image: 'public/team/17567382-eaa2-48f0-88c4-88471581caae.jpeg',
     bio: 'Visionary behind OwlVest, building startup access for everyone.',
   },
   {
@@ -69,39 +69,38 @@ export default function TeamSection() {
           ))}
         </div>
       </div>
+{/* 🤝 Partnerships */}
+<div className="mt-24 mb-20">
+  <motion.h3
+    className="text-xl sm:text-2xl font-semibold text-gray-300 mb-8"
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+  >
+    Trusted by leading ecosystem partners
+  </motion.h3>
 
-      {/* 🤝 Partnerships */}
-      <div className="mt-24 mb-20">
-        <motion.h3
-          className="text-xl sm:text-2xl font-semibold text-gray-300 mb-8"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          Trusted by leading ecosystem partners
-        </motion.h3>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-center max-w-6xl mx-auto px-6">
-          {partners.map((partner, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-gray 800 p-4 rounded-xl flex items-center justify-center h-20 shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition duration-300"
-              whileHover={{ scale: 1.08 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-10 object-contain transition duration-300"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+  <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center justify-center max-w-6xl mx-auto px-6">
+    {partners.map((partner, idx) => (
+      <motion.div
+        key={idx}
+        className="bg-white/10 p-6 rounded-xl flex items-center justify-center h-28 w-28 mx-auto shadow-lg hover:shadow-[0_0_25px_rgba(0,255,160,0.3)] transition duration-300"
+        whileHover={{ scale: 1.1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: idx * 0.1 }}
+        viewport={{ once: true }}
+      >
+        <img
+          src={partner.logo}
+          alt={partner.name}
+          className="w-40 h-50 object-contain rounded-full"
+        />
+      </motion.div>
+    ))}
+  </div>
+</div>
     </motion.section>
   );
 }
