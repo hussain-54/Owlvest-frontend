@@ -5,7 +5,7 @@ const team = [
   {
     name: 'Talha',
     role: 'Founder & CEO',
-    image: 'public/team/17567382-eaa2-48f0-88c4-88471581caae.jpeg',
+    image: '/team/17567382-eaa2-48f0-88c4-88471581caae.jpeg',
     bio: 'Visionary behind OwlVest, building startup access for everyone.',
   },
   {
