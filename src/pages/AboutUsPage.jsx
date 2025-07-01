@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar'; // Optional: top nav
+import NavBar from '../components/NavBar';
 
 export default function AboutUsPage() {
   return (
@@ -29,29 +29,28 @@ export default function AboutUsPage() {
             </ul>
           </section>
 
-         {/* 📸 Gallery */}
-<section>
-  <h2 className="text-3xl font-semibold text-white mb-6 border-b border-[#00F08F] inline-block">📸 Gallery</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    {[
-      '6ccdbb14-5d2e-4739-90ec-d82031e12405.jpeg',
-      '66b4b560-8ff4-4ef1-bb44-7be20bcbb644.jpeg',
-      '50513f92-6967-4971-8ffa-386bce23a4e6.jpeg',
-    ].map((img, i) => (
-      <div
-        key={i}
-        className="overflow-hidden rounded-xl shadow-lg bg-white/5 p-2 hover:scale-105 transition-transform duration-300"
-      >
-        <img
-          src={`/src/gallery/${img}`}
-          alt={`Gallery ${i + 1}`}
-          className="w-full h-auto object-contain rounded-lg"
-        />
-      </div>
-    ))}
-  </div>
-</section>
-
+          {/* 📸 Gallery */}
+          <section>
+            <h2 className="text-3xl font-semibold text-white mb-6 border-b border-[#00F08F] inline-block">📸 Gallery</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {[
+                '6ccdbb14-5d2e-4739-90ec-d82031e12405.jpeg',
+                '66b4b560-8ff4-4ef1-bb44-7be20bcbb644.jpeg',
+                '50513f92-6967-4971-8ffa-386bce23a4e6.jpeg',
+              ].map((img, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-xl shadow-lg bg-white/5 p-1 hover:scale-105 transition-transform duration-300"
+                >
+                  <img
+                    src={`/gallery/${img}`}
+                    alt={`Gallery ${i + 1}`}
+                    className="w-full h-[500px] object-cover rounded-lg"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
 
         </div>
       </div>
