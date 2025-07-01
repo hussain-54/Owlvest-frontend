@@ -6,7 +6,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-gradient-to-r from-[#1F1A31] via-[#2A1842] to-[#46166C] text-white shadow-md fixed top-10 z-40">
+    <nav className="w-full bg-gradient-to-r from-[#1F1A31] via-[#2A1842] to-[#46166C] text-white shadow-md fixed top-8 z-40">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
