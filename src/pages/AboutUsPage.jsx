@@ -34,9 +34,9 @@ export default function AboutUsPage() {
             <h2 className="text-3xl font-semibold text-white mb-6 border-b border-[#00F08F] inline-block">📸 Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                '6ccdbb14-5d2e-4739-90ec-d82031e12405.jpeg',
-                '66b4b560-8ff4-4ef1-bb44-7be20bcbb644.jpeg',
-                '50513f92-6967-4971-8ffa-386bce23a4e6.jpeg',
+                '6ccdbb14-5d2e-4739-90ec-d82031e12405-removebg-preview.png',
+                '66b4b560-8ff4-4ef1-bb44-7be20bcbb644-removebg-preview.png',
+                '50513f92-6967-4971-8ffa-386bce23a4e6-removebg-preview.png',
               ].map((img, i) => (
                 <div
                   key={i}
